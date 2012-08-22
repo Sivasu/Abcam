@@ -1,0 +1,20 @@
+@model VideoWorld.Models.Statement
+
+@{
+    ViewBag.Title = "View Statement";
+}
+
+<h2>Statement for @Model.Customer</h2>
+
+<div class="statement">
+<pre>
+@Model.Text        
+</pre>
+</div>
+
+
+<p>
+	Frequent Rental Points: @Model.Points 
+</p>
+
+

@@ -1,0 +1,24 @@
+﻿@model IEnumerable<VideoWorld.Models.Statement>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Statement History</h2>
+
+<div class="statements">
+@foreach (var statement in Model) {
+    <div class="statement">
+        <pre>
+        @statement.Text
+		Points from this transaction: @statement.Points      
+        </pre>
+    </div>
+}
+
+Total Points: @Model.Sum(m => m.Points)
+@if(Model.Sum(m => m.Points) > 10)
+{
+	<text>You are eligible for a free rental</text>
+}
+</div>
