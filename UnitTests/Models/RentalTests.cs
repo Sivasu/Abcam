@@ -37,5 +37,16 @@ namespace UnitTests.Models
 			var model = new Rental(movie, 7);
 			Assert.AreEqual(1, model.NumberOfFreeDays);
 		}
+
+		[Test]
+		public void For_A_Childrens_Release_Every_three_day_rentals_get_two_additional_days_free()
+		{
+			var isNewMovie = false;
+			var isChildrensMovie = true;
+
+			var childsMovie = new Movie("A Childrens Movie", isNewMovie, isChildrensMovie);
+			var model = new Rental(childsMovie, 2);
+			Assert.AreEqual(1, model.NumberOfFreeDays);
+		}
 	}
 }

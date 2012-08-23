@@ -31,8 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Moq">
-      <HintPath>..\lib\test\Moq.dll</HintPath>
+    <Reference Include="Moq, Version=4.0.10827.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\lib\test\nunit.framework.dll</HintPath>
@@ -54,6 +54,8 @@
     <Compile Include="Controllers\StatementControllerTest.cs" />
     <Compile Include="Controllers\HomePageControllerTests.cs" />
     <Compile Include="Models\CartTests.cs" />
+    <Compile Include="Models\ChildrensDummyMovie.cs" />
+    <Compile Include="Models\ChildrensRental.cs" />
     <Compile Include="Models\DummyMovie.cs" />
     <Compile Include="Models\RentalTests.cs" />
     <Compile Include="Models\StatementRepositoryTests.cs" />
@@ -68,6 +70,9 @@
       <Project>{CEF38368-9E5B-47B3-B538-8646837EA1D4}</Project>
       <Name>VideoWorld</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

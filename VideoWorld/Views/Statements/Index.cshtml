@@ -16,7 +16,8 @@
     </div>
 }
 
-Total Points: @Model.Sum(m => m.Points)
+<p>Total Points: @Model.Sum(m => m.Points)</p>
+<p>Total Amount Spent:	$@String.Format("{0:0.00}", Model.Sum(m => m.GetTotalValue())) </p>
 @if(Model.Sum(m => m.Points) > 10)
 {
 	<text>You are eligible for a free rental</text>

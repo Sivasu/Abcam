@@ -10,8 +10,9 @@ namespace VideoWorld.Models
         public static IPrice NEW_MOVIE_PRICING_STRATEGY = new NewMoviePricingStrategy();
 
     	public bool IsNew;
-		
-		public Movie(string title) : this(title, Movie.REGULAR_MOVIE_PRICING_STRATEGY)
+    	public bool IsChildrens;
+
+    	public Movie(string title) : this(title, Movie.REGULAR_MOVIE_PRICING_STRATEGY)
         {
         }
 
@@ -19,6 +20,14 @@ namespace VideoWorld.Models
 		{
 			this.title = title;
 			this.IsNew = isNew;
+		}
+
+		public Movie(string title, bool isNew, bool isChildrens)
+			: this(title, Movie.REGULAR_MOVIE_PRICING_STRATEGY)
+		{
+			this.title = title;
+			this.IsNew = isNew;
+			this.IsChildrens = isChildrens;
 		}
 
         public Movie(string title, IPrice pricingStrategy)

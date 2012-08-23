@@ -1,10 +1,9 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="CartTests.cs" company="Microsoft">
+// <copyright file="ChildrensDummyMovie.cs" company="Microsoft">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
 
-using NUnit.Framework;
 using VideoWorld.Models;
 
 namespace UnitTests.Models
@@ -17,16 +16,11 @@ namespace UnitTests.Models
 	/// <summary>
 	/// TODO: Update summary.
 	/// </summary>
-	public class CartTests
+	public class ChildrensDummyMovie :Movie
 	{
-		[Test]
-		public void EnsureClearCartCreatesANewListOfRentals()
+		public ChildrensDummyMovie() : base("A Childrens Movie", false, true)
 		{
-			var cart = new Cart();
-			cart.AddMovie(new DummyMovie(), 7);
-			var rentals = cart.Rentals;
-			cart.EmptyCart();
-			Assert.AreNotSame(cart.Rentals, rentals);
+			
 		}
 	}
 }

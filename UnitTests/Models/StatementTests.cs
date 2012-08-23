@@ -22,8 +22,10 @@ namespace UnitTests.Models
 		[Test]
 		public void GetTotalShouldReturnTheValueOfAllRentals()
 		{
-			var statement = new List<Rental>() {new Rental(new Movie("Jaws"), 7), new Rental(new Movie("Snakes"), 2)};
-			Assert.AreEqual(9, Statement.GetTotalValue());
+			var rentals = new List<Rental>() {new Rental(new Movie("Jaws"), 7), new Rental(new Movie("Snakes"), 2)};
+			var order = new Order(rentals);
+			var statement = new Statement(order, new Customer());
+			Assert.AreEqual(9, statement.GetTotalValue());
 		}
 	}
 }

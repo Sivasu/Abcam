@@ -59,5 +59,10 @@ namespace VideoWorld.Models
 		{
 			return newRentals.Sum(newRental => newRental.Movie.GetCharge(newRental.Period));
 		}
+
+		public double GetTotalValue()
+		{
+			return (double)this.Order.Rentals.Sum(x => x.Movie.GetCharge(x.Period));
+		}
 	}
 }
