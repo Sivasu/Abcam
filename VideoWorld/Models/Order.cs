@@ -1,6 +1,7 @@
 ﻿// --------------------------------------------------------------------------------
 // 	$Id: $
 // --------------------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,15 +10,33 @@ namespace VideoWorld.Models
 	/// <summary></summary>
 	public sealed class Order
 	{
+
 		/// <summary>Initializes a new instance of the <see cref="Order"/> class.</summary>
-		public Order(IList<Rental> rentals)
+		public Order()
 		{
-			this.Rentals = rentals;
-			this.Points = this.Rentals.Sum(x => x.Points);
+			this.Rentals = new List<Rental>();
 		}
 
-		public int Points { get; private set; }
+		public int GetPoints()
+		{
+			return this.Rentals.Sum(m => m.Points);
+		}
+
+		public int Count()
+		{
+			return this.Rentals.Count;
+		}
 
 		public IList<Rental> Rentals { get; private set; }
+
+		public bool Contains(Rental movie)
+		{
+			return this.Rentals.Contains(movie);
+		}
+
+		public void Add(Rental rental)
+		{
+			this.Rentals.Add(rental);
+		}
 	}
 }

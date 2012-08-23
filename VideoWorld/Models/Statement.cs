@@ -11,7 +11,6 @@ namespace VideoWorld.Models
 			this.Order = order;
 			this.Customer = customer;
 			this.Text = GetText();
-			this.Points = order.Points;
 		}
 
 		public Order Order { get; private set; }
@@ -24,8 +23,6 @@ namespace VideoWorld.Models
 		{
 			return PrintHeader() + PrintBody(this.Order.Rentals) + PrintFooter(this.Order.Rentals);
 		}
-
-		public int Points { get; private set; }
 
 		private string PrintHeader()
 		{

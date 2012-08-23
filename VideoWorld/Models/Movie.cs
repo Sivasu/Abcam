@@ -91,11 +91,16 @@ namespace VideoWorld.Models
 
     	public string GetDisplayName()
     	{
+    		var displayName = this.title;
 			if(IsNew)
 			{
-				return title + " *new";
+				displayName += " *new";
 			}
-    		return title;
+			if(IsChildrens)
+			{
+				displayName += " *childrens";
+			}
+    		return displayName;
     	}
     }
 

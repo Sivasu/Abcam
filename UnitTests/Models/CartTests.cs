@@ -22,11 +22,13 @@ namespace UnitTests.Models
 		[Test]
 		public void EnsureClearCartCreatesANewListOfRentals()
 		{
+
 			var cart = new Cart();
-			cart.AddMovie(new DummyMovie(), 7);
-			var rentals = cart.Rentals;
+			var order = cart.order;
+
 			cart.EmptyCart();
-			Assert.AreNotSame(cart.Rentals, rentals);
+			
+			Assert.AreNotSame(cart.order, order);
 		}
 	}
 }

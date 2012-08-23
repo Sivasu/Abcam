@@ -47,7 +47,7 @@ namespace UnitTests.Controllers
         [Test]
         public void ShouldPopulatestatementModel()
         {
-			var o1 = new Order(new List<Rental>());
+			var o1 = new Order();
             var statement = new Statement(o1, customer);
             repository.Add(statement);
             ViewResult result = controller.Show(0);
@@ -57,8 +57,8 @@ namespace UnitTests.Controllers
         [Test]
         public void ShouldShowStatementHistory()
         {
-			var o1 = new Order(new List<Rental>());
-			var o2 = new Order(new List<Rental>());
+			var o1 = new Order();
+			var o2 = new Order();
             var s1 = new Statement(o1, customer);
             var s2 = new Statement(o2, customer);
 

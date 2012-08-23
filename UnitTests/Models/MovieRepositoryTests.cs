@@ -11,7 +11,7 @@ namespace UnitTests.Models
         {
             var repository = new MovieRepository();
             List<Movie> movies = repository.FindAllMovies();
-            Assert.AreEqual(3, movies.Count);
+            Assert.AreEqual(4, movies.Count);
         }
 
     }

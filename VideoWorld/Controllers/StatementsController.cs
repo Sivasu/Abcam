@@ -19,8 +19,7 @@ namespace VideoWorld.Controllers
         public RedirectResult Create()
         {
             
-        	var order = new Order(customer.Cart.Rentals);
-			var statement = new Statement(order, customer);
+			var statement = new Statement(customer.Cart.order, customer);
 
             int id = repository.Add(statement);
 			customer.Cart.EmptyCart();

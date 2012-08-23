@@ -10,7 +10,8 @@ namespace VideoWorld.Models
                        {
                            new Movie("Avatar", true),
                            new Movie("Up in the Air"),
-                           new Movie("Finding Nemo")
+                           new Movie("Finding Nemo", false, true),
+						   new Movie("Up", true, true)
                        };
         }
     }

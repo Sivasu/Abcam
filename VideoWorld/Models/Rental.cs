@@ -10,14 +10,19 @@
             this.movie = movie;
             this.periodInDays = periodInDays;
         	this.Points = 1;
+        	this.NumberOfFreeDays = 0;
 
 			if (movie.IsNew)
 			{
-				NumberOfFreeDays = (periodInDays > 6) ? 1 : 0;
+				NumberOfFreeDays = NumberOfFreeDays + ((periodInDays > 6) ? 1 : 0);
 			}
-			else
+			if (!movie.IsNew)
 			{
-				NumberOfFreeDays = periodInDays/3;
+				NumberOfFreeDays = NumberOfFreeDays + periodInDays/3;
+			}
+			if (movie.IsChildrens)
+			{
+				NumberOfFreeDays = NumberOfFreeDays + periodInDays/2;
 			}
         }
 

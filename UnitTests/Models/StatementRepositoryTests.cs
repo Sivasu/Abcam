@@ -16,8 +16,8 @@ namespace UnitTests.Models
 
             var c1 = new Customer("One");
             var c2 = new Customer("Two");
-        	var o1 = new Order(new List<Rental>());
-        	var o2 = new Order(new List<Rental>());
+        	var o1 = new Order();
+        	var o2 = new Order();
 
             var statement = new Statement(o1, c1);
             repository.Add(statement);

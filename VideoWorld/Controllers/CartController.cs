@@ -14,9 +14,9 @@ namespace VideoWorld.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post), ActionName("Index")]
-        public RedirectResult RentMovie(string title, int period, bool isNew)
+        public RedirectResult RentMovie(string title, int period, bool isNew, bool isChildrens)
         {
-            customer.Cart.AddMovie(new Movie(title, isNew), period);
+            customer.Cart.AddMovie(new Movie(title, isNew, isChildrens), period);
             return Redirect("/");
         }
 

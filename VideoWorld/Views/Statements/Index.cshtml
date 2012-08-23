@@ -11,14 +11,14 @@
     <div class="statement">
         <pre>
         @statement.Text
-		Points from this transaction: @statement.Points      
+		Points from this transaction: @statement.Order.GetPoints()      
         </pre>
     </div>
 }
 
-<p>Total Points: @Model.Sum(m => m.Points)</p>
+<p>Total Points: @Model.Sum(m => m.Order.GetPoints())</p>
 <p>Total Amount Spent:	$@String.Format("{0:0.00}", Model.Sum(m => m.GetTotalValue())) </p>
-@if(Model.Sum(m => m.Points) > 10)
+@if(Model.Sum(m => m.Order.GetPoints()) > 10)
 {
 	<text>You are eligible for a free rental</text>
 }
