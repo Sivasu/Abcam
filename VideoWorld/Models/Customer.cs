@@ -25,6 +25,22 @@ namespace VideoWorld.Models
             get { return  cart; }
         }
 
-        public string Name { get; private set; } 
+        public string Name { get; private set; }
+
+		public int PointsEarned;
+
+		public int PointsSpent;
+
+    	public int GetPointsBalance()
+    	{
+    		var pointsBalance = PointsEarned - PointsSpent;
+
+			if (pointsBalance < 0)
+			{
+				throw new ArgumentOutOfRangeException();
+			}
+
+    		return PointsEarned - PointsSpent;
+    	}
     }
 }

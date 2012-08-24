@@ -26,6 +26,11 @@
 			}
         }
 
+		public decimal GetCharge()
+		{
+			return this.movie.GetCharge(this.periodInDays);
+		}
+
         public Movie Movie
         {
             get { return movie; }

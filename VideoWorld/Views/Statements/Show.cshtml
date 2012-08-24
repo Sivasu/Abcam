@@ -4,11 +4,15 @@
     ViewBag.Title = "View Statement";
 }
 
-<h2>Statement for @Model.Customer</h2>
+<h2>Statement for @Model.Customer.Name</h2>
 
 <div class="statement">
 <pre>
-@Model.Text        
+Rental Record for @Model.Customer.Name
+@Html.Partial("Statement", Model)
+
+Amount Charged is $@Model.GetTotalValue()        
+
 </pre>
 </div>
 

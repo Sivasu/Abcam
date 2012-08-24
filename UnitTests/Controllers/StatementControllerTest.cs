@@ -38,13 +38,6 @@ namespace UnitTests.Controllers
         }
 
         [Test]
-        public void ShouldRecordStatement()
-        {
-            controller.Create();
-            Assert.That(repository.FindById(0).Text, Contains.Substring("Amount charged is"));
-        }
-
-        [Test]
         public void ShouldPopulatestatementModel()
         {
 			var o1 = new Order();

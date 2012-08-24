@@ -1,0 +1,8 @@
+﻿@model VideoWorld.Models.Statement
+
+@foreach(var rental in Model.Order.Rentals)
+{
+	<text>
+		@rental.Movie.Title - $@rental.GetCharge() -Days rented: @rental.Period - Free Days:  @rental.NumberOfFreeDays
+	</text>
+}

@@ -10,7 +10,7 @@
 @foreach (var statement in Model) {
     <div class="statement">
         <pre>
-        @statement.Text
+        @Html.Partial("Statement", statement)
 		Points from this transaction: @statement.Order.GetPoints()      
         </pre>
     </div>
