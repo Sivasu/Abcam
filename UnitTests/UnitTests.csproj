@@ -56,6 +56,7 @@
     <Compile Include="Models\CartTests.cs" />
     <Compile Include="Models\ChildrensDummyMovie.cs" />
     <Compile Include="Models\ChildrensRental.cs" />
+    <Compile Include="Models\StubCustomer.cs" />
     <Compile Include="Models\DummyMovie.cs" />
     <Compile Include="Models\RentalTests.cs" />
     <Compile Include="Models\StatementRepositoryTests.cs" />

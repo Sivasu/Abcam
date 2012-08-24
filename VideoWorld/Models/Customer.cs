@@ -27,9 +27,14 @@ namespace VideoWorld.Models
 
         public string Name { get; private set; }
 
-		public int PointsEarned;
+		protected int PointsEarned;
 
 		public int PointsSpent;
+
+		public void AddPoints(int points)
+		{
+			PointsEarned += points;
+		}
 
     	public int GetPointsBalance()
     	{

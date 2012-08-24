@@ -20,8 +20,8 @@ namespace UnitTests.Models
 		public void When_The_Points_Spent_Is_More_Than_The_Points_Earnt_An_Exception_Is_Thrown()
 		{
 			// Arrange
-			var customer = new Customer();
-			customer.PointsEarned = 5;
+			var customer = new StubCustomer();
+			customer.SetPointsEarned(5);
 			customer.PointsSpent = 10;
 
 			//Assert
@@ -32,8 +32,8 @@ namespace UnitTests.Models
 		public void The_Balance_Is_Equal_To_The_Number_Of_Points_Earnt_Minus_Number_Of_Points_Spent()
 		{
 			//Arrange
-			var customer = new Customer();
-			customer.PointsEarned = 5;
+			var customer = new StubCustomer();
+			customer.SetPointsEarned(5);
 			customer.PointsSpent = 3;
 
 			//Act
@@ -41,6 +41,19 @@ namespace UnitTests.Models
 
 			//Assert
 			Assert.AreEqual(2, result);
+		}
+
+		[Test]
+		public void AddingPointsToACustomerShouldIncreaseTheTotalPoints()
+		{
+			//Arrange
+			var customer = new StubCustomer();
+
+			//Act
+			customer.AddPoints(6);
+
+			//Assert
+			Assert.AreEqual(6, customer.GetPointsEarned());
 		}
     }
 }
