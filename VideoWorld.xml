@@ -1,0 +1,64 @@
+
+<Project DefaultTargets="RunUnitTests" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+ 
+  
+<Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
+ 
+<PropertyGroup>
+    
+	<Configuration>Debug</Configuration>
+    
+	<NUnitRunner>C:\Data\Installer\NUnit\NUnit-2.6.0.12051\bin\nunit-console.exe</NUnitRunner>
+ 
+</PropertyGroup>
+ 
+  
+
+<ItemGroup>
+    
+	<ProjectsToBuild Include="VideoWorld\VideoWorld.csproj" />
+    
+	<ProjectsToBuild Include="UnitTests\UnitTests.csproj" />
+    
+</ItemGroup>
+
+<Target Name="BuildAll" DependsOnTargets="Clean;Build;RunUnitTests"/>
+
+  
+
+<Target Name="Build">
+    
+	<MSBuild Projects="@(ProjectsToBuild)" ContinueOnError="false" Properties="Configuration=$(Configuration)">
+      
+	<Output ItemName="BuildOutput" TaskParameter="TargetOutputs"/>
+    
+	</MSBuild>
+  
+</Target>
+  
+
+<Target Name="Clean">
+    
+	<MSBuild Projects="@(ProjectsToBuild)" ContinueOnError="false" Targets="Clean"
+            Properties="Configuration=$(Configuration)" />
+  
+</Target>
+
+  
+
+<Target Name="RunUnitTests" DependsOnTargets="Build">
+    
+	<CreateItem Include="UnitTests\bin\Debug\UnitTests.dll" >
+      
+		<Output TaskParameter="Include" ItemName="TestAssemblies" />
+    
+	</CreateItem>
+    
+	<NUnit ToolPath="$(NUnitPath)" Assemblies="@(TestAssemblies)" DisableShadowCopy="true" />
+  
+</Target>
+
+
+
+
+</Project>
